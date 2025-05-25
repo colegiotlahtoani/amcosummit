@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMCO SUMMIT INTERNATIONAL 2025 | Colegio Tlahtoani</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --verde-limon: #CDDC39;
+            --azul-verde: #009688;
+            --naranja: #FF9800;
+            --morado: #9C27B0;
+            --amarillo: #FFEB3B;
+            --rojo: #F44336;
+            --gris-oscuro: #212121;
+            --gris-claro: #f5f5f5;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Archivo', sans-serif;
+            background-color: white;
+            color: var(--gris-oscuro);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Cabecera vibrante */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-verde), var(--morado));
+            color: white;
+            padding: 6rem 2rem 8rem;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: -4rem;
+            text-align: center;
+        }
+        
+        .logo-colegio {
+            width: 120px;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, white, var(--amarillo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Sección intro */
+        .intro {
+            text-align: center;
+            padding: 4rem 0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Grid de participantes */
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+        
+        .participant-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .participant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            height: 120px;
+            background: linear-gradient(135deg, var(--naranja), var(--rojo));
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .card-emoji {
+            font-size: 3rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .participant-card:hover .card-emoji {
+            transform: scale(1.2) rotate(10deg);
+            opacity: 1;
+        }
+        
+        .card-body {
+            padding: 1.8rem;
+        }
+        
+        .card-category {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background-color: var(--verde-limon);
+            color: var(--gris-oscuro);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .card-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--gris-oscuro);
+        }
+        
+        .card-event {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--azul-verde);
+            margin-bottom: 1rem;
+        }
+        
+        .media-container {
+            width: 100%;
+            margin-top: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .media-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .media-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Sección de celebración */
+        .celebration {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--morado), var(--azul-verde));
+            color: white;
+            margin-top: 3rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .celebration h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, white, var(--amarillo));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card-name {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <img src="https://via.placeholder.com/120x120" alt="Colegio Tlahtoani" class="logo-colegio">
+            <h1>AMCO SUMMIT INTERNATIONAL 2025</h1>
+            <p class="hero-subtitle">Nuestros estudiantes representando al Colegio Tlahtoani</p>
+        </div>
+    </header>
+    
+    <main>
+        <section class="intro fade-in">
+            <div class="container">
+                <p>Un evento lleno de emociones donde nuestros alumnos demostraron su talento y dedicación en las diferentes competencias académicas.</p>
+            </div>
+        </section>
+        
+        <section class="container">
+            <div class="participants-grid">
+                <!-- Participante 1 - Encuentro Happy -->
+                <div class="participant-card fade-in">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--morado), var(--azul-verde));">
+                        <span class="card-emoji">💖✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--morado); color: white;">Encuentro Happy</span>
+                        <h3 class="card-name">Montserrat Becerril Luna</h3>
+                        <p class="card-event">Categoría: Beginners</p>
+                        <div class="media-container">
+                            <img src="montserrat_becerril_luna.jpg" alt="Montserrat Becerril Luna">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 2 - Encuentro Happy -->
+                <div class="participant-card fade-in delay-1">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--naranja), var(--amarillo));">
+                        <span class="card-emoji">🌟💖</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--naranja); color: white;">Encuentro Happy</span>
+                        <h3 class="card-name">Kelya Nicole Ruvalcaba</h3>
+                        <p class="card-event">Categoría: Juniors</p>
+                        <div class="media-container">
+                            <img src="kelya_nicole_ruvalcaba.jpg" alt="Kelya Nicole Ruvalcaba">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 3 - Spelling Bee -->
+                <div class="participant-card fade-in delay-2">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--verde-limon), var(--azul-verde));">
+                        <span class="card-emoji">🐝✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--azul-verde); color: white;">Spelling Bee</span>
+                        <h3 class="card-name">Angela Navarro Barajas</h3>
+                        <p class="card-event">1st Grade | Cluster B</p>
+                        <div class="media-container">
+                            <img src="angela_navarro_barajas.jpg" alt="Angela Navarro Barajas">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 4 - Spelling Bee -->
+                <div class="participant-card fade-in delay-1">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--amarillo), var(--naranja));">
+                        <span class="card-emoji">💧✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--amarillo);">Spelling Bee</span>
+                        <h3 class="card-name">Valentina Torres Rivera</h3>
+                        <p class="card-event">2nd Grade | Cluster A</p>
+                        <div class="media-container">
+                            <img src="valentina_torres_rivera.jpg" alt="Valentina Torres Rivera">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 5 - Spelling Bee -->
+                <div class="participant-card fade-in delay-2">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--rojo), var(--naranja));">
+                        <span class="card-emoji">🔴✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--rojo); color: white;">Spelling Bee</span>
+                        <h3 class="card-name">José Emiliano Rodríguez</h3>
+                        <p class="card-event">3rd Grade | Cluster A</p>
+                        <div class="media-container">
+                            <img src="jose_emiliano_rodriguez.jpg" alt="José Emiliano Rodríguez">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 6 - Spelling Bee (VIDEO) -->
+                <div class="participant-card fade-in delay-3">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--amarillo), var(--verde-limon));">
+                        <span class="card-emoji">🟡✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--amarillo);">Spelling Bee</span>
+                        <h3 class="card-name">Luis Carlos Mancilla Avila</h3>
+                        <p class="card-event">4th Grade | Cluster A</p>
+                        <div class="media-container">
+                            <video controls>
+                                <source src="luis_carlos_mancilla_avila.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 7 - Spelling Bee -->
+                <div class="participant-card fade-in delay-2">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--azul-verde), #3F51B5);">
+                        <span class="card-emoji">🔵✨</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: #3F51B5; color: white;">Spelling Bee</span>
+                        <h3 class="card-name">Camila Julieta Nuñez Juárez</h3>
+                        <p class="card-event">5th Grade | Cluster A</p>
+                        <div class="media-container">
+                            <img src="camila_julieta_nunez_juarez.jpg" alt="Camila Julieta Nuñez Juárez">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Participante 8 - Spelling Bee (VIDEO) -->
+                <div class="participant-card fade-in delay-3">
+                    <div class="card-header" style="background: linear-gradient(135deg, var(--morado), #E91E63);">
+                        <span class="card-emoji">🌟🐝</span>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category" style="background: var(--morado); color: white;">Spelling Bee</span>
+                        <h3 class="card-name">Romina Elizabeth Aldana</h3>
+                        <p class="card-event">6th Grade | Cluster B</p>
+                        <div class="media-container">
+                            <video controls>
+                                <source src="romina_elizabeth_aldana.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="celebration fade-in">
+            <div class="container">
+                <h2>¡Orgullo Tlahtoani!</h2>
+                <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">Felicitamos a todos nuestros estudiantes por su excelente participación en el AMCO Summit International 2025.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Animación de aparición al hacer scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
