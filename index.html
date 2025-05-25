@@ -15,9 +15,11 @@
             --rojo: #F44336;
             --gris-oscuro: #212121;
             --gris-claro: #f5f5f5;
+            --degradado-hero: linear-gradient(135deg, #009688, #673AB7);
+            --degradado-card: linear-gradient(135deg, #FF5722, #FF9800);
         }
         
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
         
         * {
             margin: 0;
@@ -26,102 +28,151 @@
         }
         
         body {
-            font-family: 'Archivo', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: white;
             color: var(--gris-oscuro);
             overflow-x: hidden;
             line-height: 1.6;
         }
         
-        /* Cabecera vibrante */
+        /* Cabecera mejorada */
         .hero {
-            background: linear-gradient(135deg, var(--azul-verde), var(--morado));
+            background: var(--degradado-hero);
             color: white;
-            padding: 6rem 2rem 8rem;
+            padding: 4rem 1.5rem 6rem;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            margin-bottom: -4rem;
             text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+            z-index: 1;
         }
         
         .logo-colegio {
-            width: 120px;
-            margin-bottom: 1.5rem;
+            width: 100px;
+            margin-bottom: 1rem;
             animation: pulse 2s infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            position: relative;
+            z-index: 2;
         }
         
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             background: linear-gradient(to right, white, var(--amarillo));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
+            margin: 0 auto 1.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
         
-        /* Sección intro */
+        /* Sección intro mejorada */
         .intro {
             text-align: center;
-            padding: 4rem 0;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 3rem 0;
+            position: relative;
         }
         
-        /* Grid de participantes */
+        .intro-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-text::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--degradado-hero);
+        }
+        
+        /* Grid de participantes mejorado */
         .participants-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 0;
         }
         
         .participant-card {
             background: white;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .participant-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
         .card-header {
-            height: 120px;
-            background: linear-gradient(135deg, var(--naranja), var(--rojo));
+            height: 100px;
+            background: var(--degradado-card);
             position: relative;
             display: flex;
             align-items: flex-end;
-            padding: 1.5rem;
+            padding: 1rem;
         }
         
         .card-emoji {
-            font-size: 3rem;
+            font-size: 2rem;
             position: absolute;
-            top: 20px;
-            right: 20px;
-            opacity: 0.8;
+            top: 15px;
+            right: 15px;
+            opacity: 0.9;
             transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         
         .participant-card:hover .card-emoji {
@@ -130,31 +181,45 @@
         }
         
         .card-body {
-            padding: 1.8rem;
+            padding: 1.5rem;
         }
         
         .card-category {
             display: inline-block;
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             background-color: var(--verde-limon);
             color: var(--gris-oscuro);
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .card-name {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
             color: var(--gris-oscuro);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .card-name::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--azul-verde);
+            border-radius: 3px;
         }
         
         .card-event {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--azul-verde);
             margin-bottom: 1rem;
         }
@@ -166,12 +231,18 @@
             overflow: hidden;
             position: relative;
             background: var(--gris-claro);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
         .media-container img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .participant-card:hover .media-container img {
+            transform: scale(1.02);
         }
         
         .media-container video {
@@ -181,35 +252,59 @@
             background: var(--gris-claro);
         }
         
-        /* Sección de celebración */
+        /* Sección de celebración mejorada */
         .celebration {
             text-align: center;
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--morado), var(--azul-verde));
+            padding: 4rem 0;
+            background: var(--degradado-hero);
             color: white;
             margin-top: 3rem;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            position: relative;
+        }
+        
+        .celebration::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+            z-index: 1;
         }
         
         .celebration h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1.5rem;
             background: linear-gradient(to right, white, var(--amarillo));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
         }
         
-        /* Animaciones */
+        .celebration p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+        
+        /* Animaciones mejoradas */
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
         }
         
@@ -219,30 +314,78 @@
         }
         
         .fade-in {
-            animation: fadeIn 1s ease forwards;
+            animation: fadeIn 0.8s ease forwards;
         }
         
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
         .delay-3 { animation-delay: 0.6s; }
         
-        /* Responsive */
+        /* Efectos de partículas decorativas */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        /* Responsive mejorado */
         @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem 5rem;
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+            
+            .intro-text {
+                padding: 1.2rem;
+                font-size: 1rem;
+            }
+            
+            .participants-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
             
             .card-name {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+            }
+            
+            .celebration h2 {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.5rem 1rem 4rem;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-colegio {
+                width: 80px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Partículas decorativas -->
+    <div class="particle" style="width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="width: 8px; height: 8px; top: 60%; left: 80%; animation-delay: 1s;"></div>
+    <div class="particle" style="width: 12px; height: 12px; top: 30%; left: 50%; animation-delay: 2s;"></div>
+    <div class="particle" style="width: 6px; height: 6px; top: 70%; left: 30%; animation-delay: 1.5s;"></div>
+    
     <header class="hero">
         <div class="container">
             <img src="logo-colegio-tlahtoani.png" alt="Logo Colegio Tlahtoani" class="logo-colegio">
@@ -252,9 +395,11 @@
     </header>
     
     <main>
-        <section class="intro fade-in">
+        <section class="intro">
             <div class="container">
-                <p>Un evento lleno de emociones donde nuestros alumnos demostraron su talento y dedicación en las diferentes competencias académicas.</p>
+                <div class="intro-text fade-in">
+                    <p>Un evento lleno de emociones donde nuestros alumnos demostraron su talento y dedicación en las diferentes competencias académicas.</p>
+                </div>
             </div>
         </section>
         
@@ -391,7 +536,7 @@
         <section class="celebration fade-in">
             <div class="container">
                 <h2>¡Orgullo Tlahtoani!</h2>
-                <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">Felicitamos a todos nuestros estudiantes por su excelente participación en el AMCO Summit International 2025.</p>
+                <p>Felicitamos a todos nuestros estudiantes por su excelente participación en el AMCO Summit International 2025.</p>
             </div>
         </section>
     </main>
@@ -414,6 +559,29 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             fadeObserver.observe(el);
+        });
+
+        // Crear más partículas dinámicamente
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero');
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 8 + 4;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 3;
+                const duration = Math.random() * 4 + 4;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                heroSection.appendChild(particle);
+            }
         });
     </script>
 </body>
